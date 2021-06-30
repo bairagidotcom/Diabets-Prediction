@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <title>Diabetes Predictor</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">DIABETES PREDICTOR </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          </div>
+    
+      </nav>
+    <div class="container my-3">
+        <h4>Enter all the values and click Predict:</h4>
+        <form action='/predict' method="POST">
+            <div class="mb-3">
+                <label>Pregnancies:</label>
+                <input type="text" class="form-control validate" name="Pregnancies">
+            </div>
+            <div class="mb-3">
+                <label>Glucose:</label>
+                <input type="text" class="form-control validate" name="Glucose">
+            </div>
+            <div class="mb-3">
+                <label>Blood Pressure:</label>
+                <input type="text" class="form-control validate" name="BloodPressure">
+            </div>
+            <div class="mb-3">
+                <label>Skin Thickness:</label>
+                <input type="text" class="form-control validate" name="SkinThickness">
+            </div>
+            <div class="mb-3">
+                <label>Insulin:</label>
+                <input type="text" class="form-control validate" name="Insulin">
+            </div>
+            <div class="mb-3">
+                <label>BMI:</label>
+                <input type="text" class="form-control validate" name="BMI">
+            </div>
+            <div class="mb-3">
+                <label>Diabetes Pedigree Function:</label>
+                <input type="text" class="form-control validate" name="DiabetesPedigreeFunction">
+            </div>
+            <div class="mb-3">
+                <label>Age:</label>
+                <input type="text" class="form-control validate" name="Age">
+            </div>
+            <button type="submit" class="btn btn-dark">Predict</button>
+        </form>
+    </div>
+    <div>
+
+        <div class="container">
+            <div class="alert alert-dark" role="alert">
+               {{pred}}
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
